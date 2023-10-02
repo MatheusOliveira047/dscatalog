@@ -1,17 +1,13 @@
 package com.mattcode.dscatalog.resource;
 
 import com.mattcode.dscatalog.dto.CategoryDTO;
-import com.mattcode.dscatalog.entities.Category;
 import com.mattcode.dscatalog.services.CategoryService;
-import com.mattcode.dscatalog.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -40,6 +36,13 @@ public class CategoryResource {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(category.getId()).toUri();
 
         return ResponseEntity.created(uri).body(category);
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<CategoryDTO> update(@PathVariable Long id, @RequestBody CategoryDTO category){
+        category = service.update(id,category);
+
+        return ResponseEntity.ok().body(category);
     }
 
 }
