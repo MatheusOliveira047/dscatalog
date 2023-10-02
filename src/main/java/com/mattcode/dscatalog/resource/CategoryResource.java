@@ -3,6 +3,7 @@ package com.mattcode.dscatalog.resource;
 import com.mattcode.dscatalog.dto.CategoryDTO;
 import com.mattcode.dscatalog.entities.Category;
 import com.mattcode.dscatalog.services.CategoryService;
+import com.mattcode.dscatalog.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
