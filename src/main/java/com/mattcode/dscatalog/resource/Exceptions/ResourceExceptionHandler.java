@@ -20,7 +20,7 @@ public class ResourceExceptionHandler {
         HttpStatus status = HttpStatus.NOT_FOUND;
         error.setTimestamp(Instant.now());
         error.setStatus(status.value());
-        error.setError("Resource not Found");
+        error.setError("Resource não encontrado");
         error.setMessage(e.getMessage());
         error.getPath(request.getRequestURI());
         return ResponseEntity.status(status).body(error);
